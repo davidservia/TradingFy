@@ -11,6 +11,8 @@
 <h2>Version Desktop con Base de Datos Local</h2>
 <p>https://www.youtube.com/embed/4DftiG-pLs8</p> 
 <p></p>
+<h2>Ver Conexion con Firebase</h2>
+<p>https://youtu.be/spSFvU66qPU</p>
 <h2>Version movil con Base de Datos Local</h2>
 <p>https://www.youtube.com/embed/wC3vB3VCDgk</p> 
 <h2>Codigo QR del repositorio</h2>
