@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar class="markets" color="white">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <div id="nav-pages">
+      <ion-title>{{'Markets.title' | translate}}</ion-title>
+      
+    </div>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar [debounce]="50" (ionChange)="handleChange2($event)"></ion-searchbar>
+  <div *ngIf="filteredMarkets && filteredMarkets.length">
+    <ion-grid>
+      <ion-row>
+        <ion-col sizeXs="4" sizeXl="2" *ngFor="let market of filteredMarkets">
+          <app-market [market]="market" 
+            (onEdit)="onEditMarket($event)"
+            (onDelete)="onDeleteMarket($event)"></app-market>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div *ngIf="!filteredMarkets">
+    <ion-grid>
+      <ion-row>
+        <ion-col sizeXs="4" sizeXl="2" *ngFor="let market of getMarkets()">
+          <app-market [market]="market" 
+            (onEdit)="onEditMarket($event)"
+            (onDelete)="onDeleteMarket($event)"></app-market>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  
+</ion-content>
+
+<ion-segment>
+  <ion-segment-button (click)="onNewMarket()" icon-only>
+    <ion-icon name="add-circle" color="primary" style="zoom:2"></ion-icon>
+  </ion-segment-button>
+ 
+</ion-segment>

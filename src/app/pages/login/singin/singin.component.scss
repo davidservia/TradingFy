@@ -1,0 +1,32 @@
+
+ion-grid.login{
+    height:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background: url(../../../../assets/image/login5.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    form{
+        width:300px;
+        .form-button{
+            width:100%;
+            display:flex;
+            padding-top:10px;
+        }
+        .form-button.left{
+            justify-content: flex-start;
+        }
+        .form-button.right{
+            justify-content: flex-end;
+        }
+    }
+}
+
+.background-login{
+    padding: 1%;
+    background-image: url(../../../../assets/image/vertical1.jpg);
+    border-radius: 10%;
+}

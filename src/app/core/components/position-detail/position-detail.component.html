@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{'Position-detail.title' | translate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onDismiss(null)">{{'button.close' | translate}}</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
+    <input id="fileLoader" type="file" #fileLoader name="files" title="Load Files" hidden>
+    <ion-img *ngIf="currentImage.value" [src]="currentImage$ | async"></ion-img>
+    <ion-img *ngIf="!currentImage.value" src="https://ionicframework.com/docs/img/demos/thumbnail.svg"></ion-img>
+    <ion-button *ngIf="(platform.isNative$ | async)" expand="full" id="picture-button">{{'change-picture.title' | translate}}</ion-button>
+    <ion-button *ngIf="!(platform.isNative$ | async)" expand="full" (click)="changePic(fileLoader, 'file')">{{'change-picture.title' | translate}}</ion-button>
+    
+    <ion-item>
+      <ion-label position="floating">
+        {{'Position-detail.nombre' | translate}}
+      </ion-label>
+      <ion-input type="text" placeholder="Introduce el nombre" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">
+        {{'Position-detail.duracion' | translate}}
+      </ion-label>
+      <ion-input type="number" placeholder="Introduce la duración" formControlName="time"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">
+        {{'Position-detail.posicioninicial' | translate}}
+      </ion-label>
+      <ion-input type="number" placeholder="Introduzca el valor de posicion Inicial" formControlName="valor"></ion-input>
+    </ion-item>
+    <ion-popover *ngIf="platform.isNative$ | async" style="width:100%" trigger="picture-button" [dismissOnSelect]="true">
+      <ng-template>
+        <ion-content class="ion-padding">
+          <ion-list>
+            <ion-item lines="inset" (click)="changePic(fileLoader, 'library')" [button]="true" [detail]="false">
+              <ion-icon slot="start" name="images-outline"></ion-icon>
+              <ion-label>{{'change-picture.library' | translate}}</ion-label>
+            </ion-item>
+            <ion-item lines="inset" (click)="changePic(fileLoader, 'camera')" [button]="true" [detail]="false">
+              <ion-icon slot="start" name="camera-outline"></ion-icon>
+              <ion-label>{{'change-picture.camera' | translate}}</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-content>
+      </ng-template>
+    </ion-popover>
+    <ion-button color="success" [disabled]="!form.valid" type="submit">{{(mode=="Edit"?"button.edit":"button.new") | translate}}</ion-button>
+  </form>
+</ion-content>

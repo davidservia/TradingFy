@@ -1,0 +1,35 @@
+<ion-item-sliding #sliding [disabled]="!isLowResolution()">
+  <ion-item>
+    <ion-avatar>
+      <img *ngIf="!position.picture" alt="Silhouette of mountains"
+        src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+      <img *ngIf="position.picture" alt="Position picture" [src]="position.picture" />
+    </ion-avatar>
+    <ion-label>{{position.name}} <br> ({{position.valor}} $)</ion-label>
+
+    <ion-icon name="swap-horizontal" *ngIf="isLowResolution()"></ion-icon>
+    <ion-button class="item-expanded" *ngIf="!isLowResolution()" slot="end" fill="clear" (click)="onEditClick(sliding)">
+      <div class="vertical">
+        <ion-icon name="pencil"></ion-icon>
+        {{'button.edit' | translate}}
+      </div>
+    </ion-button>
+
+    <ion-button class="item-expanded" *ngIf="!isLowResolution()" slot="end" fill="clear" color="danger"
+      (click)="onDeleteClick(sliding)">
+      <div class="vertical">
+        <ion-icon name="trash"></ion-icon>
+        {{'button.delete' | translate}}
+      </div>
+    </ion-button>
+  </ion-item>
+
+  <ion-item-options>
+    <ion-item-option (click)="onEditClick(sliding)" color="light">
+      <ion-icon slot="top" name="pencil-outline" color="success"></ion-icon>
+    </ion-item-option>
+    <ion-item-option (click)="onDeleteClick(sliding)" color="light">
+      <ion-icon slot="top" name="trash-outline" color="danger"></ion-icon>
+    </ion-item-option>
+  </ion-item-options>
+</ion-item-sliding>

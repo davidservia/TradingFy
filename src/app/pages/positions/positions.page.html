@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar class="position" color="white">
+    <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <div id="nav-pages">
+    <ion-title>{{'Position.title' | translate}}</ion-title>
+    </div> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar [debounce]="50" (ionChange)="handleChange2($event)"></ion-searchbar>
+  <div *ngFor="let position of filteredPositions">
+    <ion-list>
+      <app-position *ngFor="let position of filteredPositions" [position]="position" (onEdit)="onEditPosition($event)" (onDelete)="onDeletePosition($event)"></app-position>
+    </ion-list>
+  </div>
+  <div *ngIf="!filteredPositions">
+    <ion-list>
+      <app-position *ngFor="let position of getPositions()" [position]="position" (onEdit)="onEditPosition($event)" (onDelete)="onDeletePosition($event)"></app-position>
+    </ion-list>
+  </div>
+</ion-content>
+
+<ion-segment>
+  <ion-segment-button (click)="onNewPosition()" icon-only>
+    <ion-icon name="add-circle" color="primary" style="zoom:2"></ion-icon>
+  </ion-segment-button>
+</ion-segment>

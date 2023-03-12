@@ -1,0 +1,27 @@
+<ion-accordion-group #accordion>
+  <ion-accordion value="first">
+<ion-item slot="header" color="light">  
+    <ng-container *ngIf="selectedMarket!=null">
+      <ion-avatar class="market">
+        <img *ngIf="!selectedMarket?.picture" alt="Silhouette of a market's head"
+          src="https://ionicframework.com/docs/img/demos/avatar.svg">
+        <img *ngIf="selectedMarket.picture" alt="Market picture" [src]="selectedMarket.picture">
+      </ion-avatar>
+      <ion-label>{{selectedMarket?.name}}</ion-label>
+    </ng-container>
+    <ion-label *ngIf="!selectedMarket">Selecciona un Mercado:</ion-label>
+</ion-item>
+  <div class="ion-padding" slot="content">
+    <ion-list>
+      <ion-item *ngFor="let market of getMarkets()" button (click)="onMarketClicked(market, accordion)" >
+        <ion-avatar class="market">
+          <img *ngIf="!market.picture" alt="Silhouette of a market's head"
+            src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          <img *ngIf="market.picture" alt="Market picture" [src]="market.picture"/>
+        </ion-avatar>
+        <ion-label>{{market.pais}}, {{market.name}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-accordion>
+</ion-accordion-group>

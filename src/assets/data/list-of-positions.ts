@@ -1,0 +1,92 @@
+import { Position } from "src/app/core/models/position.model";
+
+export const LIST_OF_POSITIONS: Position[] = [];
+/*
+  {
+    id:1,
+    name:"Apple",
+    time:30,
+    valor:172,
+    picture:"https://e7.pngegg.com/pngimages/255/774/png-clipart-apple-logo-apple-company-leaf.png"
+  },
+  {
+    id:2,
+    name:"Adobe",
+    time:20,
+    valor:50,
+    picture:"https://www.creativosonline.org/wp-content/uploads/2020/06/nuevo-adobe-logo.jpg.webp"
+  },
+  {
+    id:3,
+    name:"Bitcoin",
+    time:50,
+    valor:7500,
+    picture:"https://s2.coinmarketcap.com/static/img/coins/200x200/1.png"
+  },
+  {
+    id:4,
+    name:"Tlry",
+    time:43,
+    valor:4,
+    picture:"https://g.foolcdn.com/art/companylogos/square/tlry.png"
+  },
+  {
+    id:5,
+    name:"Acb",
+    time:32,
+    valor:1,
+    picture:"https://w1.pngwing.com/pngs/444/219/png-transparent-medical-logo-aurora-cannabis-medical-cannabis-fra21p-tsx-company-aphria-cannimed.png"
+  },
+  {
+    id:6,
+    name:"Ethereum",
+    time:27,
+    valor:70,
+    picture:"https://www.creativefabrica.com/wp-content/uploads/2021/06/14/Cryptocurrency-Ethereum-Logo-Graphics-13394054-1.jpg"
+  },
+  {
+    id:7,
+    name:"Intel",
+    time:21,
+    valor:30,
+    picture:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Intel_logo_%282006-2020%29.svg/1005px-Intel_logo_%282006-2020%29.svg.png"
+  },
+  {
+    id:8,
+    name:"Astrazeneca",
+    time:17,
+    valor:80,
+    picture:"https://c8.alamy.com/compes/2dbkdke/logotipo-de-astrazeneca-2dbkdke.jpg"
+  },
+  {
+    id:9,
+    name:"Teamviewer",
+    time:35,
+    valor:7,
+    picture:"https://static.teamviewer.com/resources/2019/07/TeamViewer_Logo_512x512.png",
+    
+  },
+  {
+    id:10,
+    name:"Sony",
+    time:40,
+    valor:132,
+    picture:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Sony_Computer_Entertainment_logo.jpg/432px-Sony_Computer_Entertainment_logo.jpg"
+  },
+  {
+    id:11,
+    name:"Locky Martin",
+    time:30,
+    valor:210,
+    picture:"https://img2.freepng.es/20180406/iaw/kisspng-lockheed-martin-f-35-lightning-ii-united-states-bu-1000-5ac809974bab90.00075935152305909531.jpg"
+  },
+  {
+    id:12,
+    name:"Orange",
+    time:15,
+    valor:90,
+    picture:"https://1000marcas.net/wp-content/uploads/2019/12/tm_0019_Orange-S.A.-logo.jpg"
+  },
+
+  
+  ];*/

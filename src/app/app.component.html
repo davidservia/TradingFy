@@ -1,0 +1,57 @@
+<body>
+  <ion-app>
+    <ion-split-pane contentId="main-content">
+      <ion-menu contentId="main-content" type="overlay">
+        <ion-content>
+          <ion-list id="inbox-list">
+           
+            <ion-list-header>Bienvenido a TradingFy</ion-list-header>
+            <ion-list-header>Usuario:</ion-list-header><ion-item>{{(user.user$ |async)?.first_name}},{{(user.user$ |async)?.last_name}}</ion-item>
+            <ion-note> </ion-note>
+  
+            <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+              <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+                <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+                <ion-label>{{ p.title }}</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+            <ion-item>
+              <ion-button color="danger" (click)="signOut()">{{'home.logout' | translate}}</ion-button>
+            </ion-item>
+  
+          </ion-list>
+  
+          <ion-list id="labels-list">
+           <!-- <ion-list-header>{{'home.labels' | translate}}</ion-list-header>
+            <ion-button (click)="onLanguage()">{{'home.langButtom' | translate}}</ion-button>
+          -->
+          <ion-fab slot="fixed" vertical="top" horizontal="start">
+            <ion-fab-button>
+              <ion-icon name="language-outline"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-list side="end">
+              <ion-fab-button (click)="onLanguage()">
+                <ion-icon src="../assets/image/reinounido.svg"></ion-icon>
+              </ion-fab-button>
+              <ion-fab-button (click)="onLanguage()">
+                <ion-icon src="../assets/image/Flag-of-Spain-01-2.svg"></ion-icon>
+              </ion-fab-button>
+            </ion-fab-list>
+          </ion-fab>
+            <ion-item>
+                
+                       
+            </ion-item> 
+            <iframe src="https://themoneyconverter.com/es/CurrencyConverter?tab=0&from=EUR&to=USD&bg=ffffff" marginwidth="0" marginheight="0" scrolling="no" seamless="seamless"></iframe>
+  
+            <ion-item *ngFor="let label of labels" lines="none">
+              <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
+              <ion-label>{{ label }}</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-content>
+      </ion-menu>
+      <ion-router-outlet id="main-content"></ion-router-outlet>
+    </ion-split-pane>
+  </ion-app>
+  </body>

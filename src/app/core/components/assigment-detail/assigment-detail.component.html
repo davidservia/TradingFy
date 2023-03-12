@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{'Assignments.title' | translate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onDismiss(null)">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
+    <app-market-selectable formControlName="marketId" ></app-market-selectable>
+    <app-position-selectable formControlName="positionId"></app-position-selectable>
+    <ion-item>
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+    </ion-item>
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime doneText="Aceptar" cancelText="Cancelar" showDefaultButtons="true" name="dateTime" id="datetime"
+          (ionChange)="onChangeDateTime($event)">
+        </ion-datetime>
+      </ng-template>
+    </ion-modal>
+    <ion-button color="success" [disabled]="!form.valid" type="submit">{{(mode=="Edit"?"button.edit":"button.new") | translate}}</ion-button>
+  </form>
+</ion-content>
