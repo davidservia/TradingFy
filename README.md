@@ -3,7 +3,7 @@
 <p>Este proyecto consta de una aplicacion de plataforma de bolsa, con un crud de mercados y Posiciones(activos)</p>
 <p>Este proyecto cuenta con iframes, dinamicos y operables.</p>
 <p>Tambien cuenta con una pagina de informacion sobre su creador y unos diseños muy esteticos </p>
-# Segunda actualizacion con base de Datos de FireBase
+<h1> Segunda actualizacion con base de Datos de FireBase</h1>
 <p> Se le ha añadido la conexion con Firebase tanto para el crud como para el login</p>
 <p> Cada usuario gestiona sus propias posiciones y mercados<p>
 <p> He dejado la conversion de moneda en publico porque asi puede usarlo sin necesidad de registro</p>
