@@ -42,13 +42,14 @@ export class AssignmentService {
   }
 
   getAssignment() {
-    var assign;
-    this.assigns$
-      .pipe()
-      .subscribe(filteredAssigns => {
-        assign = filteredAssigns;
-      });
-    return assign;
+    // var assign;
+    // this.assigns$
+    //   .pipe()
+    //   .subscribe(filteredAssigns => {
+    //     assign = filteredAssigns;
+    //   });
+    // return assign;
+    return this._assignsSubject.value;
   }
 
   getAssignmentByUserId(): Observable<Assign[]> {

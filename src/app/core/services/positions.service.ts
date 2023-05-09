@@ -5,6 +5,8 @@ import { Position } from '..';
 import { FileUploaded, FirebaseService } from './firebase/firebase-service';
 import { UserService } from './user.service';
 
+import { Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,14 +14,17 @@ export class PositionsService {
 
   private _positionSubject:BehaviorSubject<Position[]> = new BehaviorSubject([]);
   public positions$ = this._positionSubject.asObservable();
+  
 
   unsub;
   constructor(
     private firebase:FirebaseService,
-    private userSVC:UserService
+    private userSVC:UserService,
+    
     
   ) { 
     this.unsub = this.firebase.subscribeToCollection('position',this._positionSubject,this.mapPositions);
+    
 
     
   }
@@ -31,7 +36,7 @@ export class PositionsService {
       name: doc['data']().name,
       time: doc['data']().time,
       userId: doc['data']().userId,
-      valor: doc['data']().valor,
+      mercado: doc['data']().mercado,
       picture: doc['data']().picture
     };
   }
@@ -49,21 +54,44 @@ export class PositionsService {
     return position;
   }
 
-  getPositionsByUserId():Position[]{
-    var positionfilteredByUserId;
+  getPositionsByUserId():Promise<Position[]>{
+    return new Promise<Position[]>(async (resolve, reject)=>{
 
-    this.positions$
-      .pipe(
-        map(positions => positions.filter(position => position.userId === this.firebase.getUser().uid))
-      )
-      .subscribe(filteredPositions => {
-        positionfilteredByUserId = filteredPositions;
-      });
-      return(positionfilteredByUserId);
+      this.positions$
+        .pipe(
+          map(positions => {
+            
+            return (positions as Position[]).filter(position => {
+              return position.userId === this.firebase.getUser().uid;
+            });
+          }
+        )).subscribe({
+          next:
+          positions=>{
+            resolve(positions);
+          },
+          error:err=>reject(err)});
+    });
   }
 
-  getPositionById(id:string):any{
-    this.positions$.pipe(map(positions => positions.filter(position => position.docId === id))).subscribe(filteredPosition => {return filteredPosition});
+  getPositionById(id: string):Promise<Position> {
+    return new Promise<Position>(async (resolve, reject)=>{
+      try {
+        var position = (await this.firebase.getDocument('position', id));
+        resolve({
+          id:0,
+          docId:position.id,
+          name:position.data['name'],
+          time:position.data['time'],
+          userId:position.data['userID'],
+          mercado:position['mercado'],
+          picture:position.data['picture']
+        });  
+      } catch (error) {
+        reject(error);
+      }
+    });
+    // this.positions$.pipe(map(positions => positions.filter(position => position.docId === id))).subscribe(filteredPosition => {return filteredPosition});
   }
 
   async deletePositionById(position:Position){
@@ -88,7 +116,7 @@ export class PositionsService {
       name: position.name,
       time: position.time,
       userId: this.firebase.getUser().uid,
-      valor: position.valor,
+      mercado: position.mercado,
     };
     if (position['pictureFile']){
       var response:FileUploaded = await this.uploadImage(position['pictureFile']);
@@ -96,6 +124,7 @@ export class PositionsService {
     }
     try {
       await this.firebase.createDocument('position', _position);
+      
     }catch(error){
       console.log(error);
     }
@@ -108,7 +137,7 @@ export class PositionsService {
       name: positionItem.name,
       time: positionItem.time,
       userId: positionItem.userId,
-      valor: positionItem.valor
+      mercado: positionItem.mercado
     };
     if (positionItem['pictureFile']){
       var response:FileUploaded = await this.uploadImage(positionItem['pictureFile']);

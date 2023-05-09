@@ -19,8 +19,8 @@ const routes: Routes = [
     canActivate:[AuthGuard]
   },
   {
-    path: 'schedule',
-    loadChildren: () => import('./pages/schedule/schedule.module').then( m => m.SchedulePageModule),
+    path: 'charts',
+    loadChildren: () => import('./pages/chart/chart.module').then( m => m.EstadisticasModule),
     canActivate:[AuthGuard]
   },
   {

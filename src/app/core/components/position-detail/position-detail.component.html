@@ -24,13 +24,13 @@
       <ion-label position="floating">
         {{'Position-detail.duracion' | translate}}
       </ion-label>
-      <ion-input type="number" placeholder="Introduce la duración" formControlName="time"></ion-input>
+      <ion-input type="text" placeholder="Introduzca el tipo de posicion" formControlName="time"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">
         {{'Position-detail.posicioninicial' | translate}}
       </ion-label>
-      <ion-input type="number" placeholder="Introduzca el valor de posicion Inicial" formControlName="valor"></ion-input>
+      <ion-input type="text" placeholder="Introduzca el mercado de la Posicion" formControlName="mercado"></ion-input>
     </ion-item>
     <ion-popover *ngIf="platform.isNative$ | async" style="width:100%" trigger="picture-button" [dismissOnSelect]="true">
       <ng-template>

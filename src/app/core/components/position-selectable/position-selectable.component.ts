@@ -25,8 +25,12 @@ export class PositionSelectableComponent implements OnInit, ControlValueAccessor
     private positionsService: PositionsService
   ) { }
 
-  writeValue(obj: any): void {
-    //this.selectedPosition = this.positionsService.getPositionById(obj);;
+  async writeValue(obj: any)  {
+    try{
+    this.selectedPosition = await this.positionsService.getPositionById(obj);;
+    }catch(error){
+      console.log("No se ha podido recuperar los datos : "+error)
+    }
   }
   registerOnChange(fn: any): void {
     this.propagateChange = fn;

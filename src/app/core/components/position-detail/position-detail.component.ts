@@ -26,7 +26,7 @@ export class PositionDetailComponent {
       this.form.controls['docId'].setValue(position.docId);
       this.form.controls['name'].setValue(position.name);
       this.form.controls['time'].setValue(position.time);
-      this.form.controls['valor'].setValue(position.valor);
+      this.form.controls['mercado'].setValue(position.mercado);
       this.form.controls['userId'].setValue(position.userId);
       this.form.controls['picture'].setValue(position.picture);
       if(position.picture)
@@ -49,7 +49,7 @@ export class PositionDetailComponent {
       name:['', [Validators.required]],
       time:['', [Validators.required]],
       userId:[''],
-      valor:[''],
+      mercado:[''],
       picture:[''],
       pictureFile:[null]
     });

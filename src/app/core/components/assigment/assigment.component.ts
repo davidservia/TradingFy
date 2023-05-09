@@ -12,15 +12,26 @@ import { Assign, MarketsService, PositionsService, Position, Market } from '../.
 })
 export class AssignmentComponent {
 
+  _assignment:Assign;
   @Output() onEdit = new EventEmitter();
   @Output() onDelete = new EventEmitter();
-  @Input() assign:Assign;
+ // @Input() assign:Assign;
+  @Input('assign') set assign(a:Assign){
+     this._assignment = a;
+     if(a)
+        this.loadMarketandPositions(a);
+        
+  } 
 
+  get assign(){
+    return this._assignment;
+  }
+  //private assign:Assign;
   isLowResolution = lowres;
 
 
-  private _market:BehaviorSubject<Market[]> = new BehaviorSubject([]);
-  private _position:BehaviorSubject<Position[]> = new BehaviorSubject([]);
+  private _market:BehaviorSubject<Market> = new BehaviorSubject(null);
+  private _position:BehaviorSubject<Position> = new BehaviorSubject(null);
   public market$ = this._market.asObservable();
   public position$ = this._position.asObservable();
 
@@ -31,13 +42,21 @@ export class AssignmentComponent {
     this.loadMarketandPositions(this.assign);
   }
 
+  get assignment():Assign{
+    return this.assign;
+  }
+
   private async loadMarketandPositions(a:Assign){
-    if (!a) {
-      console.error('No se ha proporcionado un objeto Assign válido');
-      return;
+   //  if (a != null) {
+    //   console.error('No se ha proporcionado un objeto Assign válido');
+    //   return;
+   //  }
+    console.log(a);
+    if(a != null){
+      this._market.next(await this.marketsService.getMarketById(a.marketId));
+      this._position.next(await this.positionsService.getPositionById(a.positionId));
     }
-    this._market.next(await this.marketsService.getMarketById(a.marketId));
-    this._position.next(await this.positionsService.getPositionById(a.positionId));
+   
   }
 
 

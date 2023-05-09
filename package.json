@@ -15,6 +15,7 @@
   "dependencies": {
     "@angular/common": "^14.0.0",
     "@angular/core": "^14.0.0",
+    "@angular/fire": "^7.5.0",
     "@angular/forms": "^14.0.0",
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
@@ -41,8 +42,9 @@
     "@types/moment": "^2.13.0",
     "@types/moment-timezone": "^0.5.30",
     "angular2-fullcalendar": "^1.0.19",
+    "chart.js": "^4.2.1",
     "express-fileupload": "^1.4.0",
-    "firebase": "^9.16.0",
+    "firebase": "^9.20.0",
     "ionicons": "^6.0.3",
     "moment-timezone": "^0.5.38",
     "rxjs": "^7.5.7",

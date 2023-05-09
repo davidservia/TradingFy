@@ -49,7 +49,7 @@
         "posicioninicial":"Open position Value",
         "title":"Position data",
         "nombre":"Name",
-        "duracion":"Duration",
+        "duracion":"Type",
         "imagen":"Picture"
     },
     "button": {

@@ -45,10 +45,10 @@
         "modificar":"Modificar" 
     },
     "Position-detail":{
-        "posicioninicial":"Valor de posicion inicial",
+        "posicioninicial":"mercado de posicion inicial",
         "title":"Datos de la posiciones",
         "nombre":"Nombre",
-        "duracion":"Duracion",
+        "duracion":"Tipo",
         "imagen":"Imagen"
     },
     "button": {

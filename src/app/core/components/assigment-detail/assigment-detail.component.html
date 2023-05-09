@@ -12,12 +12,12 @@
     <app-market-selectable formControlName="marketId" ></app-market-selectable>
     <app-position-selectable formControlName="positionId"></app-position-selectable>
     <ion-item>
-      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+      <ion-datetime-button dateTime="dateTime" formControlName="dateTime"></ion-datetime-button> 
     </ion-item>
     <ion-modal [keepContentsMounted]="true">
       <ng-template>
-        <ion-datetime doneText="Aceptar" cancelText="Cancelar" showDefaultButtons="true" name="dateTime" id="datetime"
-          (ionChange)="onChangeDateTime($event)">
+        <ion-datetime doneText="Aceptar" cancelText="Cancelar" showDefaultButtons="true" name="dateTime" id="dateTime"
+          (ionChange)="onChangeDateTime($event)" >
         </ion-datetime>
       </ng-template>
     </ion-modal>

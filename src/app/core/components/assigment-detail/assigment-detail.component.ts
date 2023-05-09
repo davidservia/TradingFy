@@ -12,8 +12,8 @@ export class AssignmentDetailComponent {
 
   form: FormGroup;
   mode: "New" | "Edit" = "New";
-  markets = this.marketsService.getMarkets();
-  positions = this.positionsService.getPositions();
+  //markets = this.marketsService.getMarkets();
+  //positions = this.positionsService.getPositions();
 
   @Input('assign') set assign(assign: Assign) {
     if (assign) {
@@ -41,7 +41,7 @@ export class AssignmentDetailComponent {
       marketId: [-1, [Validators.min(1)]],
       positionId: [-1, [Validators.min(1)]],
       userId:[''],
-      dateTime: ['', []]
+      dateTime:['', []]
       
     });
   }

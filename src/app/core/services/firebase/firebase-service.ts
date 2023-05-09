@@ -13,16 +13,17 @@ export interface FileUploaded{
 };
 
 export interface FirebaseDocument{
+  //[x: string]: string;
   id:string;
-  data:DocumentData;
+  data:DocumentData; 
 }
 
 export interface FirestoreImages{
 
 }
-export const FIRESTORE_POSITIONS_COLLECTION = 'tradingfy-positions';
+export const FIRESTORE_POSITIONS_COLLECTION = 'tradingfy-position';
 export const FIRESTORE_MARKETS_COLLECTION = 'tradingfy-markets';
-export const FIRESTORE_ASSIGNMENTS_COLLECTION = 'tradingfy-assignments';
+export const FIRESTORE_ASSINGS_COLLECTION = 'tradingfy-assings';
 export const FIRESTORE_IMAGES_COLLECTION = 'tradingfy-images';
 export const FIRESTORAGE_PREFIX_PATH = 'tradingfy-images';
 

@@ -17,7 +17,7 @@
   <div *ngIf="filteredMarkets && filteredMarkets.length">
     <ion-grid>
       <ion-row>
-        <ion-col sizeXs="4" sizeXl="2" *ngFor="let market of filteredMarkets">
+        <ion-col sizeXs="12" sizeXl="2" *ngFor="let market of filteredMarkets">
           <app-market [market]="market" 
             (onEdit)="onEditMarket($event)"
             (onDelete)="onDeleteMarket($event)"></app-market>
@@ -28,7 +28,7 @@
   <div *ngIf="!filteredMarkets">
     <ion-grid>
       <ion-row>
-        <ion-col sizeXs="4" sizeXl="2" *ngFor="let market of getMarkets()">
+        <ion-col sizeXs="12" sizeMd="4" sizeLg="3" sizeXl="2" *ngFor="let market of getMarkets()">
           <app-market [market]="market" 
             (onEdit)="onEditMarket($event)"
             (onDelete)="onDeleteMarket($event)"></app-market>

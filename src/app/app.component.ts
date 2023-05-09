@@ -12,6 +12,7 @@ export class AppComponent {
     { title: 'Mercados', url: '/folder/Inbox', icon: 'Home' },
     { title: 'Gestion de Mercados', url: '/markets', icon: 'basket' },
     { title: 'Gestion de Activos', url: '/positions', icon: 'server' },
+    { title: 'Grafico de activos', url: '/charts', icon: 'server' },
     { title: 'Asignar Activos a Mercados', url: '/assign', icon: 'archive' },
     { title: 'Contacto', url: '/about', icon: 'people'}
   ];

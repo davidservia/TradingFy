@@ -63,8 +63,24 @@ export class MarketsService {
       return(marketfilteredByUserId);
   }
 
-  getMarketById(id: string):any {
-    this.markets$.pipe(map(markets => markets.filter(market => market.docId === id))).subscribe(filteredMarket => {return filteredMarket});
+  getMarketById(id: string):Promise<Market> {
+    return new Promise<Market>(async (resolve, reject)=>{
+      try {
+        var market = (await this.firebase.getDocument('markets', id));
+        resolve({
+          id:0,
+          docId:market.id,
+          name:market.data['name'],
+          pais:market.data['pais'],
+          userId:market.data['userID'],
+          horario:market['horario'],
+          picture:market.data['picture']
+        });  
+      } catch (error) {
+        reject(error);
+      }
+    });
+    //this.markets$.pipe(map(markets => markets.filter(market => market.docId === id))).subscribe(filteredMarket => {return filteredMarket});
   }
 
   async deleteMarketById(market: Market) {

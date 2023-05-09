@@ -11,16 +11,24 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './positions.page.html',
   styleUrls: ['./positions.page.scss'],
 })
-export class PositionsPage {
+export class PositionsPage implements OnInit{
   filteredPositions:Position[];
 
   private _filteredSubject:BehaviorSubject<Position[]> = new BehaviorSubject([]);
   public filteredPostions$ = this._filteredSubject.asObservable();
+
+  query:string = "";
   
-  handleChange2(event) {
-    const query = event.target.value.toLowerCase();
-    this.filteredPositions = this.positionsService.getPositionsByUserId().filter(d => d.name.toLowerCase().indexOf(query) > -1)
+
+  async filterData(query){
+    this.filteredPositions = await this.positionsService.getPositionsByUserId();
+    if(query!="")
+      this.filteredPositions =  this.filteredPositions.filter(d => d.mercado.toLowerCase().indexOf(query) > -1 || d.name.toLocaleLowerCase().indexOf(query) > -1)
     this.updateFilteredPositions();
+  }
+  async handleChange2(event) {
+    this.query = event.target.value.toLowerCase();
+    this.filterData(this.query);
     
   }
 
@@ -35,10 +43,15 @@ export class PositionsPage {
     private translate:TranslateService,
   ) { }
 
-  getPositions(){
-    return this.positionsService.getPositionsByUserId();
+  ngOnInit(): void {
+    this.positionsService.positions$.subscribe(positions=>{
+      this.filterData(this.query);
+      this.updateFilteredPositions();
+    });
+    
+   
   }
-
+  
   async presentPositionForm(position:Position){
     const modal = await this.modal.create({
       component:PositionDetailComponent,
