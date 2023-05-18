@@ -24,7 +24,14 @@
       <ion-label position="floating">
         {{'Position-detail.duracion' | translate}}
       </ion-label>
-      <ion-input type="text" placeholder="Introduzca el tipo de posicion" formControlName="time"></ion-input>
+      <!--<ion-input type="text" placeholder="Introduzca el tipo de posicion" formControlName="time"></ion-input>-->
+          <ion-select formControlName="time" placeholder="Seleccione el tipo de posicion">
+            <ion-select-option value="Compra">Compra</ion-select-option>
+            <ion-select-option value="Venta">Venta</ion-select-option>
+
+          </ion-select>
+        
+      
     </ion-item>
     <ion-item>
       <ion-label position="floating">

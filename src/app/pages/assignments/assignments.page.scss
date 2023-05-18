@@ -1,0 +1,29 @@
+.search-bar {
+  display: flex;
+}
+
+.search-bar ion-searchbar {
+  flex: 1;
+  max-width: 50%;
+}
+
+.search-bar ion-searchbar:first-child {
+  margin-right: 5px;
+}
+.custom-card {
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-row {
+    justify-content: flex-end;
+    margin-top: 8px;
+  }
+  
+  .custom-button {
+    --ion-color: var(--ion-color-medium);
+    --ion-color-hover: var(--ion-color-medium-shade);
+    --ion-color-activated: var(--ion-color-medium-tint);
+  }
+  

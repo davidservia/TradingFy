@@ -1,0 +1,91 @@
+{
+    "login":{
+        "title":"Iniciar sesión",
+        "email":"Email",
+        "password":"Contraseña",
+        "send":"Enviar"
+    },
+    "register":{
+        "title":"Registro",
+        "register":"quiero registrarme",
+        "first_name":"Nombre",
+        "last_name":"Apellidos",
+        "email":"Email",
+        "password":"Contraseña",
+        "confirm_password":"Repita contraseña",
+        "send":"Enviar"
+    },
+    "home":{
+        "wellcome":"Bienvenido a TradingFy",
+        "usuario":"Usuario: ",
+        "primary":"Mercados",
+        "title":"Su idioma es Español",
+        "langButtom": "Cambiar idioma",
+        "labels":"Configuracion Visual",
+        "titlemercados":"Mercado de Valores",
+        "mercado":"Mercado de valores",
+        "logout":"Cerrar Sesion"
+    },
+    "chart":{
+        "title":"Grafico de Ventas/Compras"
+    },
+    "Markets":{
+        "title":"Gestion de Mercados",
+        "aviso":"¿Está seguro de que desea borrar un mercado?"
+    },
+    "Position":{
+        "title":"Gestion de Posiciones",
+        "aviso":"¿Está seguro de que quiere borrar  la posicion?"
+    },
+    "Assignments":{
+        "title":"Asignacion de Posiciones a Mercados",
+        "aviso":"¿Esta seguro que desea borrar la asignacion de la posicion?"
+
+    },
+    "Market-detail":{
+        "title":"Datos del Mercado",
+        "nombre":"Nombre",
+        "pais":"Pais",
+        "horario":"Horario",
+        "imagen":"Imagen",
+        "modificar":"Modificar" 
+    },
+    "Position-detail":{
+        "posicioninicial":"mercado de posicion inicial",
+        "title":"Datos de la posiciones",
+        "nombre":"Nombre",
+        "duracion":"Tipo",
+        "imagen":"Imagen"
+    },
+    "button": {
+        "new": "Crear",
+        "edit": "Editar",
+        "delete": "Borrar",
+        "close": "Cerrar",
+        "cancel": "Cancelar",
+        "apply": "Aplicar",
+        "cerrar":"Cerrar"
+      },
+      "app":{
+        "oscuro":"Oscuro",
+        "claro":"Claro"
+      },
+      "about":{
+        "title":"Contacto",
+        "informacion":"Informacion",
+        "text":"Somos una pequeña compañia en fase inicial, el cual nos encargamos de gestionar una pequeña cartera de clientes sus posiciones, y ofrecemos informacion del mercado a tiempo real.",
+        "redessociales": "Redes sociales"
+      },
+      "validators":{
+        "passwordMatch": "Las contraseñas no coinciden",
+        "passwordProto": "Al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número",
+        "email": "Debe introducir un email válido"
+      },
+      "change-picture":{
+        "title":"Cambiar imagen",
+        "library":"Desde la galería",
+        "camera":"Desde la cámara",
+        "file":"Desde tu equipo"
+        }
+
+}

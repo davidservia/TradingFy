@@ -5,14 +5,19 @@
         <ion-content>
           <ion-list id="inbox-list">
            
-            <ion-list-header>Bienvenido a TradingFy</ion-list-header>
-            <ion-list-header>Usuario:</ion-list-header><ion-item>{{(user.user$ |async)?.first_name}},{{(user.user$ |async)?.last_name}}</ion-item>
+            <ion-list-header>{{'home.wellcome' | translate}}</ion-list-header>
+            <ion-list-header>{{'home.usuario' | translate}}</ion-list-header><ion-item>{{(user.user$ |async)?.first_name}},{{(user.user$ |async)?.last_name}}</ion-item>
             <ion-note> </ion-note>
   
             <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
               <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
                 <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-                <ion-label>{{ p.title }}</ion-label>
+                <ion-label *ngIf="p.title=='Mercados'">{{ 'home.primary' | translate }}</ion-label>
+                <ion-label *ngIf="p.title=='Gestion de Mercados'">{{ 'Markets.title' | translate }}</ion-label>
+                <ion-label *ngIf="p.title=='Gestion de Activos'">{{ 'Position.title' | translate }}</ion-label>
+                <ion-label *ngIf="p.title=='Grafico de activos'">{{ 'chart.title' | translate }}</ion-label>
+                <ion-label *ngIf="p.title=='Asignar Activos a Mercados'">{{ 'Assignments.title' | translate }}</ion-label>
+                <ion-label *ngIf="p.title=='Contacto'">{{ 'about.title' | translate }}</ion-label>
               </ion-item>
             </ion-menu-toggle>
             <ion-item>
@@ -30,11 +35,14 @@
               <ion-icon name="language-outline"></ion-icon>
             </ion-fab-button>
             <ion-fab-list side="end">
-              <ion-fab-button (click)="onLanguage()">
+              <ion-fab-button (click)="onLanguage('ingles')">
                 <ion-icon src="../assets/image/reinounido.svg"></ion-icon>
               </ion-fab-button>
-              <ion-fab-button (click)="onLanguage()">
+              <ion-fab-button (click)="onLanguage('espanol')">
                 <ion-icon src="../assets/image/Flag-of-Spain-01-2.svg"></ion-icon>
+              </ion-fab-button>
+              <ion-fab-button (click)="onLanguage('aleman')">
+                <ion-icon src="../assets/image/Flag_of_Germany.svg"></ion-icon>
               </ion-fab-button>
             </ion-fab-list>
           </ion-fab>

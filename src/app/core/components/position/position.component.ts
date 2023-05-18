@@ -15,13 +15,11 @@ export class PositionComponent {
   @Input() position:Position;
   isLowResolution = lowres;
 
-  onEditClick(slide:IonItemSliding){
-    slide.close();
+  onEditClick(){
     this.onEdit.emit(this.position);
   }
 
-  onDeleteClick(slide:IonItemSliding){
-    slide.close();
+  onDeleteClick(){
     this.onDelete.emit(this.position);
   }
 

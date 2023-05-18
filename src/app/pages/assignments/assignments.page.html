@@ -4,34 +4,28 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <div id="nav-pages">
-    <ion-title>{{'Assignments.title' | translate}}</ion-title>
+      <ion-title>{{'Assignments.title' | translate}}</ion-title>
     </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-searchbar [debounce]="50" (ionChange)="handleChange($event)"></ion-searchbar>
-  <!--<ion-nav [root]="component"></ion-nav>-->
+  <div class="search-bar">
+    <ion-searchbar [debounce]="50" (ionChange)="handleChange($event)" placeholder="Busqueda de todas las posiciones registradas"></ion-searchbar>
+    <ion-searchbar [debounce]="50" (ionChange)="handleChange2($event)" placeholder="Busqueda de todos mercados registrados"></ion-searchbar>
+  </div>
+
+  
+
   <ion-list>
-    <ion-item *ngFor="let result of results">
-      <ion-label>{{ result.name}}</ion-label>
-    </ion-item>
+    <ion-col sizeXs="8" sizeXl="3" *ngFor="let assign of (getAssignment() | async)">
+      <app-assignment [assign]="assign" (onEdit)="onEditAssign($event)" (onDelete)="onDeleteAssign($event)"></app-assignment>
+    </ion-col>
   </ion-list>
-  <ion-searchbar [debounce]="50" (ionChange)="handleChange2($event)"></ion-searchbar>
-  <ion-list>
-    <ion-item *ngFor="let results2 of results2">
-      <ion-label>{{ results2.name }}</ion-label>
-    </ion-item>
-  </ion-list>
-  <ion-list>
-      <ion-col sizeXs="8" sizeXl="3" *ngFor="let assign of (getAssignment() | async)">
-  <app-assignment [assign]="assign" (onEdit)="onEditAssign($event)" (onDelete)="onDeleteAssign($event)"></app-assignment>
-  </ion-col>
-</ion-list>
 </ion-content>
 
-  <ion-segment>
-    <ion-segment-button (click)="onNewAssign()" icon-only>
-      <ion-icon name="add-circle" color="primary" style="zoom:2"></ion-icon>
-    </ion-segment-button>
-  </ion-segment>
+<ion-segment>
+  <ion-segment-button (click)="onNewAssign()" icon-only>
+    <ion-icon name="add-circle" color="primary" style="zoom:2"></ion-icon>
+  </ion-segment-button>
+</ion-segment>

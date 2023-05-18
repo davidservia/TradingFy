@@ -8,19 +8,15 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
-    <app-market-selectable formControlName="marketId" ></app-market-selectable>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()" class="form-container">
+    <app-market-selectable formControlName="marketId"></app-market-selectable>
     <app-position-selectable formControlName="positionId"></app-position-selectable>
     <ion-item>
-      <ion-datetime-button dateTime="dateTime" formControlName="dateTime"></ion-datetime-button> 
+      <ion-label class="form-label">{{'DateTime' | translate}}</ion-label>
+      <ion-datetime formControlName="dateTime" class="form-datetime"></ion-datetime>
     </ion-item>
-    <ion-modal [keepContentsMounted]="true">
-      <ng-template>
-        <ion-datetime doneText="Aceptar" cancelText="Cancelar" showDefaultButtons="true" name="dateTime" id="dateTime"
-          (ionChange)="onChangeDateTime($event)" >
-        </ion-datetime>
-      </ng-template>
-    </ion-modal>
-    <ion-button color="success" [disabled]="!form.valid" type="submit">{{(mode=="Edit"?"button.edit":"button.new") | translate}}</ion-button>
+    <ion-button color="success" [disabled]="!form.valid" type="submit" class="submit-button">
+      {{(mode=="Edit"?"button.edit":"button.new") | translate}}
+    </ion-button>
   </form>
 </ion-content>

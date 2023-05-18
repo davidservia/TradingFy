@@ -10,11 +10,20 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar [debounce]="50" (ionChange)="handleChange2($event)"></ion-searchbar>
+  <ion-searchbar [debounce]="50" (ionChange)="handleChange2($event)" placeholder="Filtrar por posiciones y sus mercados"></ion-searchbar>
   <ion-list>
-    <div *ngFor="let position of (filteredPostions$ | async)" >
+    <div >
+      <ion-grid>
+        <ion-row>
+          <ion-col sizeXs="12" sizeMd="4" sizeLg="3" sizeXl="2" *ngFor="let position of (filteredPostions$ | async)">
+            <app-position [position]="position" 
+              (onEdit)="onEditPosition($event)"
+              (onDelete)="onDeletePosition($event)"></app-position>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     
-        <app-position [position]="position" (onEdit)="onEditPosition($event)" (onDelete)="onDeletePosition($event)"></app-position>
+       
     </div>
   </ion-list>
   

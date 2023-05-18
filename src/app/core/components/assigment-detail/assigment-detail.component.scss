@@ -1,0 +1,19 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .form-datetime {
+    width: 100%;
+  }
+  
+  .submit-button {
+    margin-top: 20px;
+  }
+  

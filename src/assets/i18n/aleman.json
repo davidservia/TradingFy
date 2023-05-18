@@ -1,0 +1,90 @@
+
+{
+    "login": {
+    "title": "Anmelden",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "send": "Senden"
+    },
+    "register": {
+    "title": "Registrierung",
+    "register": "Ich möchte mich registrieren",
+    "first_name": "Vorname",
+    "last_name": "Nachname",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "confirm_password": "Passwort bestätigen",
+    "send": "Senden"
+    },
+    "home": {
+    "wellcome": "Willkommen bei TradingFy",
+    "usuario": "Benutzer: ",
+    "primary": "Märkte",
+    "title": "Ihre Sprache ist Deutsch",
+    "langButtom": "Sprache ändern",
+    "labels": "Visuelle Einstellungen",
+    "titlemercados": "Aktienmarkt",
+    "mercado": "Aktienmarkt",
+    "logout": "Abmelden"
+    },
+    "chart": {
+    "title": "Verkaufs-/Kaufdiagramm"
+    },
+    "Markets": {
+    "title": "Marktverwaltung",
+    "aviso": "Sind Sie sicher, dass Sie einen Markt löschen möchten?"
+    },
+    "Position": {
+    "title": "Positionsverwaltung",
+    "aviso": "Sind Sie sicher, dass Sie die Position löschen möchten?"
+    },
+    "Assignments": {
+    "title": "Positionen Zuweisung zu Märkten",
+    "aviso": "Sind Sie sicher, dass Sie die Zuweisung der Position löschen möchten?"
+    },
+    "Market-detail": {
+    "title": "Marktdaten",
+    "nombre": "Name",
+    "pais": "Land",
+    "horario": "Öffnungszeiten",
+    "imagen": "Bild",
+    "modificar": "Ändern"
+    },
+    "Position-detail": {
+    "posicioninicial": "Anfangspositionsmarkt",
+    "title": "Positionsdaten",
+    "nombre": "Name",
+    "duracion": "Typ",
+    "imagen": "Bild"
+    },
+    "button": {
+    "new": "Erstellen",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "close": "Schließen",
+    "cancel": "Abbrechen",
+    "apply": "Anwenden",
+    "cerrar": "Schließen"
+    },
+    "app": {
+    "oscuro": "Dunkel",
+    "claro": "Hell"
+    },
+    "about": {
+    "title": "Kontakt",
+    "informacion": "Information",
+    "text": "Wir sind ein kleines Start-up-Unternehmen, das eine kleine Kundenbasis und deren Positionen verwaltet und Echtzeitmarktinformationen bietet.",
+    "redessociales": "Soziale Netzwerke"
+    },
+    "validators": {
+    "passwordMatch": "Passwörter stimmen nicht überein",
+    "passwordProto": "Mindestens 8 Zeichen, ein Großbuchstabe, ein Kleinbuchstabe und eine Zahl",
+    "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+    },
+    "change-picture": {
+    "title": "Bild ändern",
+    "library": "Aus der Galerie",
+    "camera": "Aus der Kamera",
+    "file": "Von Ihrem Gerät"
+    }
+    }

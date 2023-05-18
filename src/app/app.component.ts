@@ -24,7 +24,7 @@ export class AppComponent {
     public user:UserService
     
   ) {
-    this.translate.setDefaultLang('es');
+    this.translate.setDefaultLang('espanol');
   }
 
   signOut(){
@@ -34,16 +34,8 @@ export class AppComponent {
     this.firebase.getUser()
   } 
 
-  onLanguage(){
-    this.language = (this.language+1)%2;
-    switch(this.language){
-      case 0 :
-        this.translate.setDefaultLang('es');
-        break;
-      case 1 :
-        this.translate.setDefaultLang('en');
-        break;
-    }
+  onLanguage(languageCode: string) {
+    this.translate.use(languageCode);
   }
   OnToggleDarkMode() {
     document.body.setAttribute('color-theme', 'dark');

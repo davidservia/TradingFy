@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,AfterViewInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { PositionsService } from '../../core/services/positions.service';
 import 'chart.js/auto';
@@ -10,7 +10,7 @@ Chart.register(DoughnutController);
   selector: 'app-posiciones',
   template: '<canvas id="posiciones-chart"></canvas>'
 })
-export class Estadisticas implements OnInit{
+export class Estadisticas implements OnInit, AfterViewInit{
   
 
   constructor(private PositionsService: PositionsService) {}
@@ -28,7 +28,7 @@ export class Estadisticas implements OnInit{
           this.compras++;
         }
       });
-      this.createChart();
+      
     });
   }
   createChart() {
@@ -56,5 +56,8 @@ export class Estadisticas implements OnInit{
         maintainAspectRatio: false
       }
     });
+  }
+  ngAfterViewInit() {
+    this.createChart();
   }
 }
