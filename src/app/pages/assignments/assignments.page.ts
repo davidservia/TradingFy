@@ -18,15 +18,22 @@ export class AssignmentsPage {
 
   handleChange(event) {
     const query = event.target.value.toLowerCase();
-   // this.results = this.data.filter(d => d.toLowerCase().indexOf(query) > -1);
-   this.results = this.position.getPositions().filter(d => d.name.toLowerCase().indexOf(query) > -1)
+    if (query.trim() === '') {
+      this.results = [];
+    } else {
+      this.results = this.position.getPositions().filter(d => d.name.toLowerCase().indexOf(query) > -1);
+    }
   }
+  
   handleChange2(event) {
     const query = event.target.value.toLowerCase();
-   // this.results = this.data.filter(d => d.toLowerCase().indexOf(query) > -1);
-   this.results2 = this.markets.getMarkets().filter(d => d.name.toLowerCase().indexOf(query) > -1)
-    
+    if (query.trim() === '') {
+      this.results2 = [];
+    } else {
+      this.results2 = this.markets.getMarkets().filter(d => d.name.toLowerCase().indexOf(query) > -1);
+    }
   }
+  
 
   constructor(
     private assignService: AssignmentService,
